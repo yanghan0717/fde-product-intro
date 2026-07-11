@@ -388,6 +388,8 @@ r(function(){
     else if(k==='n'||k==='N'){var o=document.querySelector('.notes-overlay');if(o)o.classList.toggle('open')}
     else if(k==='f'||k==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
     else if(k==='s'||k==='S'){window.open(location.href,'','popup,width=1024,height=768')}})
+  var lastWheel=0;
+  d.addEventListener("wheel",function(e){e.preventDefault();var now=Date.now();if(now-lastWheel<800)return;lastWheel=now;if(e.deltaY>0)g(c+1);else g(c-1)},{passive:false})
   var ov=document.createElement('div');ov.className='notes-overlay';document.body.appendChild(ov)
 })})()
 </script>
