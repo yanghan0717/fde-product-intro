@@ -390,6 +390,7 @@ r(function(){
     else if(k==='s'||k==='S'){window.open(location.href,'','popup,width=1024,height=768')}})
   var lastWheel=0;
   d.addEventListener("wheel",function(e){e.preventDefault();var now=Date.now();if(now-lastWheel<800)return;lastWheel=now;if(e.deltaY>0)g(c+1);else g(c-1)},{passive:false})
+  d.addEventListener("click",function(e){if(e.clientX>window.innerWidth/2)g(c+1);else g(c-1)})
   var ov=document.createElement('div');ov.className='notes-overlay';document.body.appendChild(ov)
 })})()
 </script>
